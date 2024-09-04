@@ -250,6 +250,26 @@
         };
       }
     </script>
+
+    // When Someone comes to a page and we need to display error // We use this
+    function
+    {{ with.Error }}
+    <script>
+      notify("{{.}}", "error");
+    </script>
+    {{ end }}
+
+    {{ with.Flash }}
+    <script>
+      notify("{{.}}", "success");
+    </script>
+    {{ end }}
+
+    {{ with.Warning }}
+    <script>
+      notify("{{.}}", "warning");
+    </script>
+    {{ end }}
   </body>
 </html>
 {{ end }}
