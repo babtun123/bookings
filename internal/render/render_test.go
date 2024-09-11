@@ -25,14 +25,6 @@ func TestAddDefaultData(t *testing.T) {
 
 }
 
-func TestRenderTemplate(t *testing.T) {
-	result := "Yes"
-	expected := "No"
-	if result != expected {
-		t.Errorf("Expected %v, but got %v", expected, result)
-	}
-}
-
 func getSession() (*http.Request, error) {
 	r, err := http.NewRequest("GET", "/some-url", nil)
 	if err != nil {

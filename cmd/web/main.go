@@ -5,11 +5,13 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/alexedwards/scs/v2"
 	"github.com/babtun123/bookings/internal/config"
 	handlers "github.com/babtun123/bookings/internal/handlers"
+	"github.com/babtun123/bookings/internal/helpers"
 	"github.com/babtun123/bookings/internal/models"
 	"github.com/babtun123/bookings/internal/render"
 )
@@ -18,6 +20,8 @@ const portNumber = ":8080"
 
 var app config.AppConfig
 var session *scs.SessionManager
+var infoLog *log.Logger
+var errorLog *log.Logger
 
 func main() {
 	err := run()
@@ -42,6 +46,13 @@ func run() error {
 	// Change this to true when in Production
 	app.InProduction = false
 
+	// Centralizing Error handling.
+	infoLog = log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
+	app.InfoLog = infoLog
+
+	errorLog = log.New(os.Stdout, "ERROR\t", log.Ldate|log.Ltime|log.Lshortfile)
+	app.ErrorLog = errorLog
+
 	session = scs.New()
 	session.Lifetime = 24 * time.Hour
 	session.Cookie.Persist = true
@@ -62,6 +73,7 @@ func run() error {
 	handlers.NewHandlers(repo)
 
 	render.NewTemplates(&app)
+	helpers.NewHelpers(&app)
 
 	return nil
 }
