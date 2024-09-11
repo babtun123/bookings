@@ -1,15 +1,3 @@
-package models
-
-import "github.com/babtun123/bookings/internal/forms"
-
-type TemplateData struct {
-	StringMap map[string]string
-	IntMap    map[string]int
-	FloatMap  map[string]float32
-	Data      map[string]interface{}
-	CSRFToken string
-	Flash     string
-	Warning   string
-	Error     string
-	Form      *forms.Form
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:d00f4f98988d6a3be469ac1daabb400f12da035b8fe39b5139c10f82333dda62
+size 314

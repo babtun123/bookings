@@ -1,18 +1,3 @@
-package forms
-
-type errors map[string][]string
-
-// Add adds an error message for a given form fiels
-func (e errors) Add(field, message string) {
-	e[field] = append(e[field], message)
-}
-
-// Get returns the first error message
-func (e errors) Get(field string) string {
-	es := e[field]
-	if len(es) == 0 {
-		return ""
-	}
-
-	return es[0]
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:dd3d50347d312e2df9d2c6fba4f6ea48b47a73ec75fdb6391fe17719bfcd945f
+size 335

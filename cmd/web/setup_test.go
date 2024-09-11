@@ -1,18 +1,3 @@
-package main
-
-import (
-	"net/http"
-	"os"
-	"testing"
-)
-
-func TestMain(m *testing.M) {
-
-	os.Exit(m.Run())
-}
-
-type myHandler struct{}
-
-func (mh *myHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:d7edb12355f4fc4873868d4625b6236e8cd23d6b4292e2cc4f2fbc7c70ead336
+size 208

@@ -1,34 +1,3 @@
-package main
-
-import (
-	"fmt"
-	"net/http"
-
-	"github.com/justinas/nosurf"
-)
-
-func writeToConsole(next http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		fmt.Println("Hit the page")
-		next.ServeHTTP(w, r)
-	})
-}
-
-// Nosurf adds CSRF protection to all post request
-func NoSurf(next http.Handler) http.Handler {
-	crsfHandler := nosurf.New(next)
-
-	crsfHandler.SetBaseCookie(http.Cookie{
-		HttpOnly: true,
-		Path:     "/",
-		Secure:   app.InProduction,
-		SameSite: http.SameSiteLaxMode,
-	})
-
-	return crsfHandler
-}
-
-// SessionLoad loads and saves the session on every request
-func SessionLoad(next http.Handler) http.Handler {
-	return session.LoadAndSave(next)
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:68ef7d069e4f9d10667df3826c49334e300aebef64c7bb7f077be75157b438b6
+size 707

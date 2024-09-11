@@ -1,18 +1,3 @@
-package config
-
-import (
-	"html/template"
-	"log"
-
-	"github.com/alexedwards/scs/v2"
-)
-
-// AppConfig holds the application config
-type AppConfig struct {
-	UseCache      bool
-	TemplateCache map[string]*template.Template
-	InfoLog       *log.Logger
-	ErrorLog      *log.Logger
-	InProduction  bool
-	Session       *scs.SessionManager
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:d07b48c820815fcef11a955533193706e183cd88fefaff7f9f9e8e2d02e5163a
+size 328
